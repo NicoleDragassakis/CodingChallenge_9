@@ -44,3 +44,33 @@ class Section {
                     });
                 }
 };
+
+//TASK THREE
+
+class Patron {
+    constructor(name, borrowedBooks){
+        this.name = name;
+        this.borrowedBooks = [];
+    } //intialization
+        //adding methods
+            //borrowbook method will allow patrons to borrow a book if it is available and update book status to borrowed
+            //returnbook method allows patrons to return a borrowed book and changes its status to available
+                borrowBook(book){
+                    if (book.borrow()){
+                        this.borrowedBooks.push(book);
+                        console.log(`${this.name} is borrowing "${book.title}"`);
+                    } else {
+                        console.log(`"${book.title}" is not available`);
+                    }
+                }
+                returnBook(book){
+                    const borrowedBookList = this.borrowedBooks.borrowedBookListOf(book);
+                    if (borrowedBookList !== 0){
+                        book.return();
+                        this.borrowedBooks.pull(borrowedBookList,1);
+                        console.log(`${this.name} returned "${book.title}"`);
+                    } else {
+                        console.log(`"${book.title}" is available`);
+                    }
+                                    }
+}
