@@ -22,3 +22,25 @@ class Book {
 
 };
 
+//TASK TWO
+class Section {
+    constructor(name,books){
+        this.name = name;
+        this.books = [];
+    }//intialization
+        //Adding methods
+            //addBook method will add a book to the books array.
+            //getavailablebooks will return the total number of books in a section
+            //listBooks method will list all the books within a section showing title and availability
+                addBook(book){
+                    this.books.push(book);
+                }
+                getAvailableBooks(){
+                   return this.books.filter(book => book._isAvailable).length; 
+                }
+                listBooks(){
+                    return this.books.map(book => {
+                        return `${book.title} availability:${book._isAvailable ? 'Available': 'Borrowed'}`;
+                    });
+                }
+};
