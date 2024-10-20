@@ -43,6 +43,11 @@ class Section {
                         return `${book.title} availability:${book._isAvailable ? 'Available': 'Borrowed'}`;
                     });
                 }
+
+                //TASK FIVE
+                    calculateTotalBooksAvailable(){
+                        return this.getAvailableBooks();
+                    }
 };
 
 //TASK THREE
@@ -91,3 +96,4 @@ class VIPPatron extends Patron{
         }
     }
 }
+
