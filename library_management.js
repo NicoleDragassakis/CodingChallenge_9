@@ -24,7 +24,7 @@ class Book {
 
 //TASK TWO
 class Section {
-    constructor(name,books){
+    constructor(name,_books){
         this.name = name;
         this.books = [];
     }//intialization
@@ -48,7 +48,7 @@ class Section {
 //TASK THREE
 
 class Patron {
-    constructor(name, borrowedBooks){
+    constructor(name, _borrowedBooks){
         this.name = name;
         this.borrowedBooks = [];
     } //intialization
@@ -73,4 +73,21 @@ class Patron {
                         console.log(`"${book.title}" is available`);
                     }
                                     }
+}
+
+//TASK FOUR
+
+class VIPPatron extends Patron{
+    constructor(name, _borrowedBooks, priority){
+        super(name, _borrowedBooks) //adpots from parent class
+        this.priority = priority;
+    }
+    borrowBook(book) {
+        if (book.borrow()){
+            this.borrowedBooks.push(book);
+            console.log(`VIP Patron ${this.name} has priority borrowing`); //VIP Patrons get priority on borrowing books
+        } else {
+            console.log(`${this.name} borrowed "${book.title}"`);
+        }
+    }
 }
