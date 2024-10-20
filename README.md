@@ -1,1 +1,2 @@
 # CodingChallenge_9
+This system will manage books, patrons, and sections. Storing information on books like, ISBN or author and section information like section name and book genre and also manage patrons allowing them to borrow and return books.
